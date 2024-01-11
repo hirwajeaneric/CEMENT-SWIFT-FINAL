@@ -69,8 +69,8 @@ export default function Navigation() {
       <div className="inner-container">
         
         {/* Logo  */}
-        <Link to='/'>
-          <h1 style={{ color: 'black', textDecoration: 'none', }}>Cement Swift</h1>
+        <Link to='/' style={{ color: 'black', textDecoration: 'none', }}>
+          <h1>Cement Swift</h1>
         </Link>
         
 
@@ -87,7 +87,7 @@ export default function Navigation() {
           <NavLink to={'/djs'}>Shop</NavLink>
           {/* <NavLink to={'/book-now'} onClick={handleBookLinkConditions}>Book now</NavLink> */}
           {/* <NavLink to={'/schedules'}>Schedules</NavLink> */}
-          {!localStorage.getItem('userTkn') && <button style={{ color: 'white' }} onClick={handleOpenSignUpModal}><LiaUserCircleSolid />Sign in / Sign up</button>}
+          {!localStorage.getItem('userTkn') && <button onClick={handleOpenSignUpModal}>Sign in </button>}
           {(localStorage.getItem('userTkn') && user.userType === 'Admin' ) && <NavLink to={'/dash/'}>Dashboard</NavLink>}
           {localStorage.getItem('userTkn') && 
             <div>

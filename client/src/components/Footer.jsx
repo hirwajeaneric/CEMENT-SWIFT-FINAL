@@ -11,9 +11,9 @@ export default function Footer() {
                 <div className='top-part'>
                     <div className='left'>
                         <Link to='/'>Home</Link>
-                        <Link to='/pricing'>Pricing</Link>
-                        <Link to='/djs'>DJs</Link>
-                        <Link to='/schedules'>Schedules</Link>
+                        {/* <Link to='/pricing'>Pricing</Link> */}
+                        <Link to='/djs'>Shop</Link>
+                        {/* <Link to='/schedules'>Schedules</Link> */}
                     </div>
                     <div className='left'>
                         <Link to='/'><HiOutlineMail /></Link>
@@ -24,7 +24,7 @@ export default function Footer() {
                 </div>
                 <div className='bottom-part'>
                     <img src='/fusee-logo-0.png' alt=''/>
-                    <p>&copy; {new Date().getFullYear()} Fusee Inc. All rights reserved</p>
+                    <p>&copy; {new Date().getFullYear()} Cement Swift. All rights reserved</p>
                 </div>
             </div>
         </FooterContainer>

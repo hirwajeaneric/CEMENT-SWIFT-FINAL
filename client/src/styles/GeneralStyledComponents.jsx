@@ -297,7 +297,7 @@ export const DesktopNavigation = styled.div`
 
     a {
         font-weight: 500;
-        color: white;
+        color: black;
         text-decoration: inherit;
         font-size: 90%;
     }
@@ -312,7 +312,8 @@ export const DesktopNavigation = styled.div`
 
     button {
         border: none;
-        background: transparent;
+        background: black;
+        color: white;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -320,6 +321,9 @@ export const DesktopNavigation = styled.div`
         font-size: 90%;
         cursor: pointer;
         flex-wrap: nowrap;
+        font-size: 100%;
+        padding: 15px;
+        border-radius: 10px;
 
         svg {
             font-size: 150%;
@@ -909,7 +913,7 @@ export const FooterContainer = styled(Box)`
     justify-content: center;
     align-items: center; 
     padding: 0 80px;
-    background: #1b1d21;
+    background: black;
     font-size: 80%;
 
     .inner-footer-container {
