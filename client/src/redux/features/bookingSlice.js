@@ -7,7 +7,7 @@ const initialState = {
     listofConfirmedBookings: [],
     numberofConfirmedBookings: 0,
     listofGeneralBookings: [],
-    listOfADjsBookings: [],
+    listOfAProductsBookings: [],
     selectedBooking: {},
     numberOfBookings: 0,
     responseMessage: '',
@@ -132,7 +132,7 @@ const userSlice = createSlice({
         },
         [getMyBookings.fulfilled] : (state, action) => {
             state.isLoading = false;
-            state.listOfADjsBookings = action.payload.sort((a,b) => new Date(a.sendDate) - new Date(b.sendDate));
+            state.listOfAProductsBookings = action.payload.sort((a,b) => new Date(a.sendDate) - new Date(b.sendDate));
         },
         [getAllBookings.rejected] : (state) => {
             state.isLoading = false;

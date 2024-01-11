@@ -7,7 +7,7 @@ import Endpoints from "../../utils/APIS";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
-export default function Djs() {
+export default function Products() {
   const { setOpen, setResponseMessage, setNotHomePage, ...other } = useContext(ScrollContext);
   const params = useParams();
   const [isProcessing, setIsProcessing] = useState(false);
@@ -54,8 +54,8 @@ export default function Djs() {
   return (
     <PageContainer>
       <Helmet>
-        <title>Djs - Djs who work with us.</title>
-        <meta name="description" content={`All Djs who work with us.`} /> 
+        <title>Products - Products who work with us.</title>
+        <meta name="description" content={`All Products who work with us.`} /> 
       </Helmet>
       <FullPageContainer style={{ background: '#f1f1f1', marginTop:'40px' }}>
         <PageSizedContainer style={{ justifyContent: 'flex-start', minHeight: '70vh', minHeight: '70svh'}}>

@@ -12,7 +12,7 @@ export default function Footer() {
                     <div className='left'>
                         <Link to='/'>Home</Link>
                         <Link to='/pricing'>Pricing</Link>
-                        <Link to='/djs'>DJs</Link>
+                        <Link to='/product'>DJs</Link>
                         <Link to='/schedules'>Schedules</Link>
                     </div>
                     <div className='left'>

@@ -243,6 +243,62 @@ export const PageSizedContainer = styled.div`;
     }
 `;
 
+export const BannerContent = styled.div`;
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    max-width: 1240px;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    color: black;
+
+    div.left {
+        width: 50%;
+        gap: 40px;
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            line-height: 3.5rem;
+        }
+
+        button {
+            padding: 20px 20px;
+            color: white;
+            font-size: 100%;
+            background-color: black;
+            border-radius: 10px;
+            border: none;
+            margin-top: 40px;
+            font-weight: 400;
+        }
+    }
+
+    div.right {
+        width: 50%;
+    }
+
+    @media (max-width: 1024px) {
+        padding: 50px 40px;        
+    }
+
+    @media (max-width: 768px) {
+        padding: 50px 30px;
+        div.left {
+            width: 100%;
+        }
+    
+        div.right {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 40px 10px;
+    }
+`;
+
 export const NavigationBarContainer = styled.div`
     position: fixed;
     top: 0;
@@ -251,7 +307,7 @@ export const NavigationBarContainer = styled.div`
     transition: background-color 0.3s;
     display: flex;
     justify-content: center;
-    height: 70px;
+    height: 100px;
     align-items: center;
     padding: 0 80px; 
     z-index: 9999; 
@@ -294,12 +350,13 @@ export const DesktopNavigation = styled.div`
     align-items: center;
     gap: 20px;
     font-size: 90%;
+    padding: 20px 0 20px;
 
     a {
         font-weight: 500;
-        color: white;
+        color: black;
         text-decoration: inherit;
-        font-size: 90%;
+        font-size: 100%;
     }
     
     a:hover {
@@ -313,17 +370,13 @@ export const DesktopNavigation = styled.div`
     button {
         border: none;
         background: transparent;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 5px;
-        font-size: 90%;
+        color: white;
+        background-color: black;
+        font-size: 100%;
+        padding: 15px 20px;
+        border-radius: 10px;
         cursor: pointer;
         flex-wrap: nowrap;
-
-        svg {
-            font-size: 150%;
-        }
     }
 
     @media (max-width: 1024px) {
@@ -1343,13 +1396,144 @@ export const ResetPasswordFormContainer = styled.form`
 
 export const BookFormContainer = styled.form`
     display: flex;
-    flex-direction: column;
     justify-content: flex-start;
     gap: 20px;
     width: 100%;
-    align-items: center;
+    align-items: flex-start;
     font-family: 'Poppins', sans-serif;
     
+    .other-options {
+        p {
+            color: black;
+        }
+
+        button {
+            font-size: 100%;
+            border: 0px;
+            background: none;
+            color: blue;
+            cursor: pointer;
+
+            &:hover {
+                color: orange;
+            }
+        }
+
+    } 
+
+    .form-input-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 5px;
+        width: 80%;
+        align-items: flex-start;
+    }
+
+    .form-input-container2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 5px;
+        width: 50%;
+        align-items: flex-start;
+    }
+
+    input, p, select, textarea {
+        width: 100%;
+    }
+
+    input, select, textarea {
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        background: white;
+        color: black;
+        border: 1px solid #d9d9d9;
+        font-size: 100%;
+    }
+
+    .submit-button {
+        padding: 12px 12px;
+        background: black;
+        color: white;
+        border: 1px solid #d9d9d9;
+        font-size: 100%;
+        cursor: pointer;
+
+        &:hover {
+            background: gray;
+        }
+    }
+
+    p {
+        font-size: 85%;
+        color: tomato;
+    }
+
+    @media (max-width: 1240px) {
+
+    }
+
+    @media (max-width: 997px) {
+        .form-input-container {
+            width: 70%;
+        }
+        
+        .form-input-container2 {
+            width: 70%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .form-input-container {
+            width: 80%;
+        }   
+
+        .form-input-container2 {
+            width: 80%;
+        }   
+    }
+
+    @media (max-width: 480px) {
+        .form-input-container {
+            width: 100%;
+        }   
+    }
+`;
+
+export const BookFormContainer2 = styled.form`
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 100%;
+    align-items: flex-start;
+    font-family: 'Poppins', sans-serif;
+    flex-direction: column;
+
+    .top-inputs {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        width: 100%;    
+    }
+    
+    .formContainer {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .formContainer .left {
+        
+    }
+
+    .formContainer .right {
+
+    }
+
     .other-options {
         p {
             color: black;

@@ -44,7 +44,7 @@ const DjDetails = () => {
         setOpen(true);
         dispatch({ type: 'user/updateUserInfo', payload: response.data.user});
         setTimeout(() => {
-          navigate('/dash/djs')
+          navigate('/dash/product')
         }, 2000)
       }
     })

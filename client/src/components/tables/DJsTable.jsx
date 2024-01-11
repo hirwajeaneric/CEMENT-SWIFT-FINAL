@@ -88,7 +88,7 @@ const TableActions = ({parameters}) => {
     <Box>
       <Tooltip title='View / Edit'>
         <IconButton onClick={() => {  
-          navigate(`/dash/djs/${parameters.row.id}`);
+          navigate(`/dash/product/${parameters.row.id}`);
           }}>
           <Preview />
         </IconButton>

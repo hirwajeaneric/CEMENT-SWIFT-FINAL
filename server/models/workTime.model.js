@@ -5,7 +5,7 @@ const workTimeSchema = new mongoose.Schema({
         type: Date,
         required: false
     },
-    listOfDjs: {
+    listOfProducts: {
         type: Array,
         required: false,
     }

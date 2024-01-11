@@ -56,9 +56,9 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         getDJs: (state, action) => {
-            let listOfDjs = action.payload.filter((user) => user.userType === 'DJ' )
-            state.listOfDJs = listOfDjs;
-            state.numberOfDJs = listOfDjs.length;
+            let listOfProducts = action.payload.filter((user) => user.userType === 'DJ' )
+            state.listOfDJs = listOfProducts;
+            state.numberOfDJs = listOfProducts.length;
         },
         dinamicSearch: (state, action) => {
             state.searchResults = state.listOfDJs.filter(user => !user.fullName.includes(action.payload));
@@ -96,13 +96,13 @@ const userSlice = createSlice({
         [updateUser.fulfilled] : (state, action) => {
             state.isLoading = false;
             state.selectedUser = action.payload;
-            let djs = state.listOfDJs;
-            djs.forEach(user => {
+            let products = state.listOfDJs;
+            products.forEach(user => {
                 if (user._id === action.payload._id) {
                     user = action.payload;
                 }
             })
-            state.listOfDJs = djs;
+            state.listOfDJs = products;
         },
         [updateUser.rejected] : (state) => {
             state.isLoading = false;

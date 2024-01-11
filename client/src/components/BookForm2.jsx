@@ -1,0 +1,127 @@
+import { useForm } from 'react-hook-form';
+import { BookFormContainer, BookFormContainer2, FormElement } from '../styles/GeneralStyledComponents';
+import { useState, useContext, useEffect } from 'react';
+import { ScrollContext } from '../App';
+import axios from 'axios';
+import Endpoints from '../utils/APIS';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllUsers } from '../redux/features/userSlice';
+import { LIST_OF_PRODUCTS } from '../utils/LIST_OF_PRODUCTS';
+import { useNavigate, useParams } from 'react-router-dom';
+
+export default function BookForm2() {
+    const { setOpen, setResponseMessage } = useContext(ScrollContext);
+    const dispatch = useDispatch();
+    const params = useParams();
+    const navigate = useNavigate();
+  
+    const [isProcessing, setIsProcessing] = useState(false);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const [product, setProduct] = useState({});
+    const [formInput, setFormInput] = useState({
+        amount: 0,
+        price: 0,
+    });
+
+    useEffect(() => {
+      setProduct(LIST_OF_PRODUCTS.find(product => product.id === params.productId))
+    },[params.productId]);
+    
+
+    const handleFormInput = ({ currentTarget: input }) => {
+        // setFormInput({ ...formInput, [input.name]: input.value});
+        var total = product.price * input.value;
+        console.log(input.value);
+        console.log(total);
+        if (input.name === 'amount') {
+            setFormInput({ ...formInput, price: total, amount: input.value });
+        } else {
+            setFormInput({ ...formInput, [input.name]: input.value });
+        }
+    }
+
+    const onSubmit = data => {
+        setIsProcessing(true);
+
+        const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+        formInput.requestingUserId = userInfo.id;
+        formInput.requestingUserEmail = userInfo.email;
+        formInput.requestingUserPhone = userInfo.phone;
+        formInput.requestingUserName = userInfo.fullName;
+
+
+
+        axios.post(Endpoints.APIS.jobApis.add, formInput)
+        .then(response => {
+            setTimeout(() => {
+                if (response.status === 201) {
+                    setIsProcessing(false);
+                    setResponseMessage('Redirecting to payment handler...');
+                    window.location.replace('https://buy.stripe.com/test_6oE6rB0Xjc0G7IY4gg');
+                }
+            }, 3000)
+        })
+        .catch(error => {
+            if (error.response && error.response.status >= 400 && error.response.status <= 500) {
+                setIsProcessing(false);
+                setResponseMessage({ message: error.response.data.msg, severity:'error'})
+                setOpen(true);
+            }
+        })
+    };
+
+    
+    return (
+        <BookFormContainer2 onSubmit={handleSubmit(onSubmit)}>
+            <div className='top-inputs'>
+                <input type="text" required name="jobLocation" value={formInput.jobLocation} placeholder="Drop location" onChange={handleFormInput} />
+                <input type="text" required name="jobGoogleMapLocation" value={formInput.jobGoogleMapLocation} placeholder="Google maps location" onChange={handleFormInput} />
+            </div>
+            <div className='formContainer'>
+                <div className='left' style={{ width: '75%', display: 'flex', alignItems:"flex-start", justifyContent:"space-between", gap: '40px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                        <p style={{ color: 'black' }}>Product</p>
+                        <div style={{ display: 'flex',gap: '20px' }}>
+                            <img src={product.image} alt='' style={{ width: '100px', padding: '5px', border: '1px solid gray', borderRadius: '10px' }}/>
+                            <div>
+                                <p style={{ color: 'black'}}>{product.name}</p>
+                                <span>{product.price}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                        <p style={{ color: 'black' }}>Quantity</p>
+                        <div style={{ display: 'flex', gap: '20px' }}>
+                            <input 
+                                style={{ width: '100px' }}
+                                type="number" 
+                                name='amount' 
+                                placeholder="Amount" 
+                                required
+                                value={formInput.amount}
+                                onChange={handleFormInput}
+                            />
+                        </div>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                        <p style={{ color: 'black' }}>Quantity</p>
+                        <p style={{ color: 'black', fontSize: '100%' }}>{formInput.price}</p>
+                    </div>
+                </div>
+                <div className='right' style={{ width: '23%', padding: '10px', border: '1px solid gray', borderRadius: '10px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+                    <b>Summary</b>
+                    <div style={{ marginBottom: '10px', width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <p style={{ color: 'black', width: '50%' }}>Delivery Charge: </p>
+                        <b style={{ color: 'black', width: '50%' }}>10000 Rwf</b>
+                    </div>
+                    <div style={{ marginBottom: '10px', width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <p style={{ color: 'black', width: '50%' }}>Grand Total: </p>
+                        <b style={{ color: 'black', width: '50%' }}>{10000 + formInput.price} Rwf</b>
+                    </div>
+                    <button type='submit' style={{ cursor: 'pointer', width: '100%', padding: '10px 15px', background: 'black', color: 'white', fontSize: '100%', border: 'none', textDecoration: 'none', borderRadius: '10px' }}>Check out now</button>
+                </div>
+            </div>
+        </BookFormContainer2>
+    );
+}

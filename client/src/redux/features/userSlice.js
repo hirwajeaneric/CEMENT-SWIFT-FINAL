@@ -4,10 +4,10 @@ import Endpoints from '../../utils/APIS';
 
 const initialState = {
     listOfDJs: [],
-    listOfActiveDjs: [],
+    listOfActiveProducts: [],
     selectedUser: {},
     numberOfDJs: 0,
-    numberOfActiveDjs: 0,
+    numberOfActiveProducts: 0,
     searchOption: '',
     searchUserResults: [],
     numberOfUserResults: 0,
@@ -60,9 +60,9 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         getDJs: (state, action) => {
-            let listOfDjs = action.payload.filter((user) => user.userType === 'DJ' )
-            state.listOfDJs = listOfDjs;
-            state.numberOfDJs = listOfDjs.length;
+            let listOfProducts = action.payload.filter((user) => user.userType === 'DJ' )
+            state.listOfDJs = listOfProducts;
+            state.numberOfDJs = listOfProducts.length;
         },
         updateUserInfo: (state, action) => {
             state.selectedUser = action.payload;
@@ -89,8 +89,8 @@ const userSlice = createSlice({
             let listOfDJs = action.payload.filter(user => user.userType === 'DJ');
             state.listOfDJs = listOfDJs;
             state.numberOfDJs = listOfDJs.length;
-            state.listOfActiveDjs = listOfDJs.filter(user => user.status === "Active");
-            state.numberOfActiveDjs = listOfDJs.filter(user => user.status === "Active").length;
+            state.listOfActiveProducts = listOfDJs.filter(user => user.status === "Active");
+            state.numberOfActiveProducts = listOfDJs.filter(user => user.status === "Active").length;
         },
         [getAllUsers.rejected] : (state) => {
             state.isLoading = false;

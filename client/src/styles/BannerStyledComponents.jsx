@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const Banner = styled.div`
     width: 100vw;
+    height: 100vh;
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,7 +21,6 @@ export const Banner = styled.div`
             left: 0;
         }
         
-        background-color: white;
         width: 100%;
         min-height: 550px;
         display: flex;

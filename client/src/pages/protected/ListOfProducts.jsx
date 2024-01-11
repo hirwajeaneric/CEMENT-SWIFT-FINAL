@@ -8,7 +8,7 @@ import { getAllUsers } from "../../redux/features/userSlice";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-export default function ListOfDjs() {
+export default function ListOfProducts() {
   const { setNotHomePage } = useContext(ScrollContext);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ export default function ListOfDjs() {
   return (
     <PageContainer>
       <Helmet>
-        <title>List of DJs - List of all available djs</title>
+        <title>List of DJs - List of all available product</title>
         <meta name="description" content={`List of all available bookings.`} /> 
       </Helmet>
       <FullPageContainer style={{ background: '#f1f1f1', color: 'black' }}>

@@ -9,8 +9,8 @@ import ResponseComponent from './components/ResponseComponent';
 import PublicPages from './pages/unprotected/index';
 import Home from './pages/unprotected/Home';
 import AboutUs from './pages/unprotected/AboutUs';
-import Djs from './pages/unprotected/Djs';
-import DjInfo from './pages/unprotected/DjInfo';
+import Products from './pages/unprotected/Products';
+import DjInfo from './pages/unprotected/ProductInfo';
 import DjJobDetails from './pages/unprotected/DjJobDetails';
 import SearchResults from './pages/unprotected/SearchResults';
 import Success from './pages/unprotected/Success';
@@ -35,9 +35,10 @@ import ListOfBookings from './pages/protected/ListOfBookings';
 import ResetPassword from './pages/protected/ResetPassword';
 import ReportPreview from './pages/protected/ReportPreview';
 
-import DjDetails from './pages/protected/DjDetails';
+import DjDetails from './pages/protected/ProductDetails';
+import ProductDetails from './pages/unprotected/ProductDetails';
 import AddDj from './pages/protected/AddDJ';
-import ListOfDjs from './pages/protected/ListOfDjs';
+import ListOfProducts from './pages/protected/ListOfProducts';
 import ScheduleDetails from './pages/unprotected/ScheduleDetails';
 
 export const ScrollContext = createContext();
@@ -101,14 +102,15 @@ function App() {
           <Route path={'/'} element={<PublicPages />}>
             <Route path={''} element={<Home />}/>
             <Route path={'about'} element={<AboutUs />}/>
-            <Route path={'book-now'} element={localStorage.getItem("userTkn") ? <Book /> : <Navigate replace to='/' />} />
+            <Route path={'order/:productId'} element={localStorage.getItem("userTkn") ? <Book /> : <Navigate replace to='/' />} />
             <Route path='success' element={<Success />} />
-            <Route path={'djs'} element={<Djs />}/>
+            <Route path={'products'} element={<Products />}/>
             <Route path={'reset-password/:token/:userId'} element={<ResetPassword />}/>
-            <Route path={'schedules'} element={<Schedules />}/>
-            <Route path='schedules/:scheduleId' element={<ScheduleDetails />} />
-            <Route path={'dj/:djId'} element={<DjInfo />}/>
-            <Route path={'dj/:djId/:jobId'} element={<DjJobDetails />}/>
+            {/* <Route path={'schedules'} element={<Schedules />}/> */}
+            {/* <Route path='schedules/:scheduleId' element={<ScheduleDetails />} /> */}
+            {/* <Route path={'product/:productId'} element={<DjInfo />}/> */}
+            <Route path={'product/:productId'} element={<ProductDetails />}/>
+            {/* <Route path={'product/:productId/:jobId'} element={<DjJobDetails />}/> */}
             <Route path={'search'} element={<SearchResults />}/>
           </Route>
 
@@ -124,12 +126,12 @@ function App() {
             <Route path='' element={<UserAccountHome />} />
             <Route path='my-bookings' element={<MyBookings />} />
             <Route path='bookings' element={<ListOfBookings />} />
-            <Route path='schedules' element={<ListOfSchedules />} />
-            <Route path='djs/' element={<ListOfDjs />} />
-            <Route path='new-dj/' element={<AddDj />} />
+            {/* <Route path='schedules' element={<ListOfSchedules />} /> */}
+            <Route path='products/' element={<ListOfProducts />} />
+            <Route path='new-product/' element={<AddDj />} />
             <Route path='settings' element={<UserAccountSettings />} />
             <Route path='bookings/:id' element={<BookingDetails />} />
-            <Route path='djs/:id' element={<DjDetails />} />
+            <Route path='product/:id' element={<DjDetails />} />
             <Route path='my-booking/:id' element={<BookingDetails />} />
             <Route path='report-preview' element={<ReportPreview />} />
             <Route path='update-job/:id' element={<UpdateJob />} />

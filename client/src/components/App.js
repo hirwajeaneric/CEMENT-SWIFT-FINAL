@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import PublicPages from './pages/unprotected/index';
 import Home from './pages/unprotected/Home';
 import Book from './pages/protected/Book';
-import Djs from './pages/unprotected/Djs';
+import Products from './pages/unprotected/Products';
 import DjInfo from './pages/unprotected/DjInfo';
 import DjJobDetails from './pages/unprotected/DjJobDetails';
 import SearchResults from './pages/unprotected/SearchResults';
@@ -17,7 +17,7 @@ import BookingDetails from './pages/protected/BookingDetails';
 import UpdateJob from './pages/protected/UpdateJob';
 import React, { createContext } from 'react';
 import ResponseComponent from './components/ResponseComponent';
-import ListOfDjs from './pages/protected/ListOfDjs';
+import ListOfProducts from './pages/protected/ListOfProducts';
 import ListOfSchedules from './pages/protected/ListOfSchedules';
 import ListOfBookings from './pages/protected/ListOfBookings';
 import MyBookings from './pages/protected/MyBookings';
@@ -91,7 +91,7 @@ function App() {
             <Route path={''} element={<Home />}/>
             <Route path={'book-now'} element={localStorage.getItem("userTkn") ? <Book /> : <Navigate replace to='/' />} />
             <Route path='success' element={<Success />} />
-            <Route path={'djs'} element={<Djs />}/>
+            <Route path={'products'} element={<Products />}/>
             <Route path={'reset-password/:token/:userId'} element={<ResetPassword />}/>
             <Route path={'schedules'} element={<Schedules />}/>
             <Route path={'dj/:djId'} element={<DjInfo />}/>
@@ -106,10 +106,10 @@ function App() {
             <Route path='my-bookings' element={<MyBookings />} />
             <Route path='bookings' element={<ListOfBookings />} />
             <Route path='schedules' element={<ListOfSchedules />} />
-            <Route path='djs' element={<ListOfDjs />} />
+            <Route path='products' element={<ListOfProducts />} />
             <Route path='settings' element={<UserAccountSettings />} />
             <Route path='bookings/:id' element={<BookingDetails />} />
-            <Route path='djs/:id' element={<DjDetails />} />
+            <Route path='products/:id' element={<DjDetails />} />
             <Route path='my-booking/:id' element={<BookingDetails />} />
             <Route path='update-job/:id' element={<UpdateJob />} />
           </Route>

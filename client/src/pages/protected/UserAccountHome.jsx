@@ -33,7 +33,7 @@ export default function UserAccountHome() {
   }
 
   const { listOfBookings, numberOfBookings, searchBookingsResults, listofConfirmedBookings, numberofConfirmedBookings, isLoading } = useSelector(state => state.booking);
-  const { listOfDJs, numberOfDJs, numberOfActiveDjs } = useSelector(state => state.user);
+  const { listOfDJs, numberOfDJs, numberOfActiveProducts } = useSelector(state => state.user);
 
   return (
     <PageContainer>
@@ -78,15 +78,15 @@ export default function UserAccountHome() {
                     <div className="first">
                       <div className="inner-stats">
                         <FiUsers style={{ color: 'purple' }}/>
-                        <h3>Djs</h3>
+                        <h3>Products</h3>
                         <p>{numberOfDJs}</p>
                       </div>
                     </div>
                     <div className="first">
                       <div className="inner-stats">
                         <FiUserCheck style={{ color: 'orange' }}/>
-                        <h3>Active Djs</h3>
-                        <p>{numberOfActiveDjs}</p>
+                        <h3>Active Products</h3>
+                        <p>{numberOfActiveProducts}</p>
                       </div>
                     </div>
                   </AdminDashboardContainer>

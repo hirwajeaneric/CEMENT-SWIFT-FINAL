@@ -3,6 +3,7 @@ import { FullPageContainer, PageContainer, PageSizedContainer, RowFlexedContaine
 import { useContext, useEffect } from "react";
 import { ScrollContext } from "../../App";
 import BookForm from "../../components/BookForm";
+import BookForm2 from "../../components/BookForm2";
 
 export default function Book() {
   const { setNotHomePage } = useContext(ScrollContext);
@@ -19,11 +20,12 @@ export default function Book() {
         <title>Book Now - Book a DJ for your event now..</title>
         <meta name="description" content={`Book a DJ for your event now.`} /> 
       </Helmet>
-      <FullPageContainer style={{ background: '#f1f1f1', marginTop:'40px', color: 'black' }}>
-        <PageSizedContainer>
+      <FullPageContainer style={{ minHeight: '60vh', background: 'white', marginTop:'40px', color: 'black' }}>
+        <PageSizedContainer style={{ padding: '80px 0'}}>
           <RowFlexedContainer style={{ justifyContent:'flex-start', gap: '30px', alignItems: "center" }}>
-            <HeaderOne1 style={{ fontWeight: '600', color: '#1b1d21', textAlign: 'center', width: '100%' }}>Book a service now</HeaderOne1>
-            <BookForm />
+            <h2 style={{ fontWeight: '600', color: '#1b1d21', textAlign: 'left', width: '100%' }}>Cart</h2>
+            <BookForm2 />
+
           </RowFlexedContainer>
         </PageSizedContainer>
       </FullPageContainer>

@@ -25,7 +25,7 @@ export default function Schedules() {
     <PageContainer>
       <Helmet>
         <title>Search results</title>
-        <meta name="description" content={`Search results of schedules and djs.`} /> 
+        <meta name="description" content={`Search results of schedules and products.`} /> 
       </Helmet>
       <FullPageContainer style={{ background: 'white' }}>
         <PageSizedContainer>

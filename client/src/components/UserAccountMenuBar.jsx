@@ -19,7 +19,7 @@ export default function UserAccountMenuBar() {
                             <NavLink className='secondary-menu-item' to={'/dash/'}>Dashboard / Home</NavLink>
                             <NavLink className='secondary-menu-item' to={'/dash/bookings'}>Bookings</NavLink>
                             <NavLink className='secondary-menu-item' to={'/dash/schedules'}>Schedules</NavLink>
-                            <NavLink className='secondary-menu-item' to={'/dash/djs'}>DJs</NavLink>
+                            <NavLink className='secondary-menu-item' to={'/dash/product'}>DJs</NavLink>
                         </>
                     }
                     <NavLink className='secondary-menu-item' to={'/dash/settings'}>Settings</NavLink>

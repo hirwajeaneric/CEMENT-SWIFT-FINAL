@@ -222,7 +222,7 @@ export default function DjInfo() {
   // STORE DATA
   const { isLoading, selectedUser } = useSelector(state => state.user);
   const { listOfJobPictures, selectedPicture } = useSelector(state => state.jobPicture);
-  const { listOfADjsBookings } = useSelector(state => state.booking);
+  const { listOfAProductsBookings } = useSelector(state => state.booking);
   const { calculatedDjRating } = useSelector(state => state.rating)
 
   return (
@@ -403,10 +403,10 @@ export default function DjInfo() {
                 </RowFlexedContainer2>
             
                 {/* DJs assigned events  */}
-                {listOfADjsBookings.length !== 0 && <RowFlexedContainer2 style={{ flexDirection: 'column', justifyContent:'flex-start', gap: '30px', alignItems: "flex-start", marginTop:'50px' }}>
+                {listOfAProductsBookings.length !== 0 && <RowFlexedContainer2 style={{ flexDirection: 'column', justifyContent:'flex-start', gap: '30px', alignItems: "flex-start", marginTop:'50px' }}>
                   <h2 style={{ color: 'gray', fontWeight: '600', fontSize: '140%' }}>Your events</h2>
                   <RowFlexedContainer2 style={{ justifyContent:'flex-start', alignItems: "flex-start", gap: '20px', flexDirection: 'row' }}>
-                    {listOfADjsBookings.map((booking, index) => (
+                    {listOfAProductsBookings.map((booking, index) => (
                       <AnEvent to={`../bookings/${booking.id}`} key={index}>
                         <div className='picture'
                           style={{ background: "url('/pexels-francesco-paggiaro-2111015.jpg')", backgroundSize: "cover",backgroundOrigin: "initial" }}>

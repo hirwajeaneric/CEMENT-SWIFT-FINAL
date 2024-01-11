@@ -28,7 +28,7 @@ export default function ReportPreview() {
   return (
     <PageContainer>
       <Helmet>
-        <title>Report preview - List of all available djs</title>
+        <title>Report preview - List of all available products</title>
         <meta name="description" content={`List of all available bookings.`} /> 
       </Helmet>
       <FullPageContainer style={{ background: '#f1f1f1', color: 'black' }}>

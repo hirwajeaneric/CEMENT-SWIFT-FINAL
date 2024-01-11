@@ -42,7 +42,7 @@ export default function DjInfo() {
 
   const { isLoading, selectedUser } = useSelector(state => state.user);
   const { listOfJobPictures, selectedPicture } = useSelector(state => state.jobPicture);
-  const { listOfADjsBookings } = useSelector(state => state.booking)
+  const { listOfAProductsBookings } = useSelector(state => state.booking)
   const { calculatedDjRating } = useSelector(state => state.rating)
 
   return (
@@ -110,10 +110,10 @@ export default function DjInfo() {
 
 
               {/* DJs assigned events  */}
-              {listOfADjsBookings.length !== 0 && <RowFlexedContainer2 style={{ flexDirection: 'column', justifyContent:'flex-start', gap: '30px', alignItems: "flex-start", marginTop:'50px' }}>
+              {listOfAProductsBookings.length !== 0 && <RowFlexedContainer2 style={{ flexDirection: 'column', justifyContent:'flex-start', gap: '30px', alignItems: "flex-start", marginTop:'50px' }}>
                   <h2 style={{ color: 'gray', fontWeight: '600', fontSize: '140%' }}>Events</h2>
                   <RowFlexedContainer2 style={{ justifyContent:'flex-start', alignItems: "flex-start", gap: '20px', flexDirection: 'row' }}>
-                    {listOfADjsBookings.map((booking, index) => (
+                    {listOfAProductsBookings.map((booking, index) => (
                       <AnEvent 
                         to={
                           (booking.jobType === 'Club' || booking.jobType === 'Concert' || booking.jobType === 'Public meeting sound system' || booking.jobType === 'Event Management') ? `/schedules/${booking.id}` : '#'

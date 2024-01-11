@@ -28,7 +28,7 @@ export default function CreateDJAccountForm() {
             setTimeout(() => {
                 if (response.status === 201) {
                     setIsProcessing(false);
-                    navigate('/dash/djs');
+                    navigate('/dash/product');
                 }
             }, 3000)
         })

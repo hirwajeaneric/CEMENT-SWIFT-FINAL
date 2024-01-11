@@ -65,12 +65,12 @@ export default function Navigation() {
   }
 
   return (
-    <NavigationBarContainer style={{ backgroundColor: (scrolled || notHomePage) ? 'white' : 'transparent' }}>
+    <NavigationBarContainer style={{ backgroundColor:'white' }}>
       <div className="inner-container">
         
         {/* Logo  */}
-        <Link to='/'>
-          <h1 style={{ color: 'black', textDecoration: 'none', }}>Cement Swift</h1>
+        <Link to='/' style={{ color: 'black', textDecoration: 'none'}}>
+          <h1>Cement Swift</h1>
         </Link>
         
 
@@ -84,10 +84,10 @@ export default function Navigation() {
         <DesktopNavigation>
           <NavLink to={'/'}>Home</NavLink>
           {/* <NavLink to={'/about'}>About us</NavLink> */}
-          <NavLink to={'/djs'}>Shop</NavLink>
+          <NavLink to={'/products'}>Shop</NavLink>
           {/* <NavLink to={'/book-now'} onClick={handleBookLinkConditions}>Book now</NavLink> */}
           {/* <NavLink to={'/schedules'}>Schedules</NavLink> */}
-          {!localStorage.getItem('userTkn') && <button style={{ color: 'white' }} onClick={handleOpenSignUpModal}><LiaUserCircleSolid />Sign in / Sign up</button>}
+          {!localStorage.getItem('userTkn') && <button onClick={handleOpenSignUpModal}>Sign in</button>}
           {(localStorage.getItem('userTkn') && user.userType === 'Admin' ) && <NavLink to={'/dash/'}>Dashboard</NavLink>}
           {localStorage.getItem('userTkn') && 
             <div>
@@ -129,7 +129,7 @@ export default function Navigation() {
         <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
           <CustomNavigationBox sx={{ boxShadow: 24, p: 4 }}>
             <NavLink to={'/'} style={{ marginTop: '70px' }} onClick={() => setOpen(false)}>Home</NavLink>
-            <NavLink to={'/djs'} onClick={() => setOpen(false)}>Shop</NavLink>
+            <NavLink to={'/products'} onClick={() => setOpen(false)}>Shop</NavLink>
             {/* <NavLink to={'/book-now'} onClick={() => { setOpen(false); handleBookLinkConditions(); }}>Book now</NavLink> */}
             {/* <NavLink to={'/schedules'} onClick={() => setOpen(false)}>Schedules</NavLink> */}
             {(localStorage.getItem('userTkn') && user.userType === 'Admin' ) && <NavLink to={'/dash/'} onClick={() => setOpen(false)}>Dashboard</NavLink>}
