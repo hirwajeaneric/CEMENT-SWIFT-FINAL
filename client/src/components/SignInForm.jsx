@@ -39,7 +39,7 @@ export default function SignInForm(props) {
     };
 
     return (
-        <BookFormContainer onSubmit={handleSubmit(onSubmit)}>
+        <BookFormContainer style={{ flexDirection: 'column', alignItems: 'center' }} onSubmit={handleSubmit(onSubmit)}>
             <div className="form-input-container">
                 <input 
                     type="email" 

@@ -10,11 +10,8 @@ import PublicPages from './pages/unprotected/index';
 import Home from './pages/unprotected/Home';
 import AboutUs from './pages/unprotected/AboutUs';
 import Products from './pages/unprotected/Products';
-import DjInfo from './pages/unprotected/ProductInfo';
-import DjJobDetails from './pages/unprotected/DjJobDetails';
 import SearchResults from './pages/unprotected/SearchResults';
 import Success from './pages/unprotected/Success';
-import Schedules from './pages/unprotected/Schedules';
 
 import Book from './pages/protected/Book';
 import MyBookings from './pages/protected/MyBookings';
@@ -30,7 +27,6 @@ import UserAccountHome from './pages/protected/UserAccountHome';
 import UserAccountSettings from './pages/protected/UserAccountSettings';
 import BookingDetails from './pages/protected/BookingDetails';
 import UpdateJob from './pages/protected/UpdateJob';
-import ListOfSchedules from './pages/protected/ListOfSchedules';
 import ListOfBookings from './pages/protected/ListOfBookings';
 import ResetPassword from './pages/protected/ResetPassword';
 import ReportPreview from './pages/protected/ReportPreview';
@@ -39,7 +35,6 @@ import DjDetails from './pages/protected/ProductDetails';
 import ProductDetails from './pages/unprotected/ProductDetails';
 import AddDj from './pages/protected/AddDJ';
 import ListOfProducts from './pages/protected/ListOfProducts';
-import ScheduleDetails from './pages/unprotected/ScheduleDetails';
 
 export const ScrollContext = createContext();
 

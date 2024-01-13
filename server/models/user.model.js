@@ -15,19 +15,6 @@ const userSchema = new mongoose.Schema({
         required: false, 
         minlength: 3,
     },
-    userType: { 
-        type: String,
-        required: false, 
-        enum: {
-            values: ["Personal","Company","DJ","Manager"],
-            message: '{VALUE} is not supported as a user type.'
-        }
-    },
-    companyName: { 
-        type: String, 
-        trim: true, 
-        required: false,
-    },
     companyDescription: { 
         type: String, 
         trim: true, 
@@ -48,14 +35,6 @@ const userSchema = new mongoose.Schema({
         maxlength: 12,
         minlength: 10,
     },
-    specialities: {
-        type: String,
-        required: false,
-    },
-    jobHistory: {
-        type: Array,
-        required: false,
-    },
     password: { 
         type: String, 
         required: [true, 'Password must be provided'], 
@@ -68,16 +47,6 @@ const userSchema = new mongoose.Schema({
     profilePicture: { 
         type: String, 
         required: false, 
-    },
-    ratings: { 
-        type: Number, 
-        required: true,
-        default: 0, 
-    },
-    startingPrice: { 
-        type: Number, 
-        required: true,
-        default: 0, 
     },
     status: {
         type: String,

@@ -7,6 +7,7 @@ const rating = require('./rating.routes');
 const workTime = require('./workTimes.routes');
 const email = require('./email.routes');
 const jobPictures = require('./jobPicture.routes');
+const paymentRouter = require('../utils/email/stripe/checkout');
 
 router.use('/profile', express.static('./profiles'));
 router.use('/pictures', express.static('./pictures'));
@@ -18,5 +19,6 @@ router.use('/rating', rating);
 router.use('/workTime', workTime);
 router.use('/email', email);
 router.use('/jobPictures', jobPictures);
+router.use('/create-checkout-session', paymentRouter);
 
 module.exports = router;

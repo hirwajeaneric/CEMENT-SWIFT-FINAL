@@ -3,10 +3,10 @@
  * This file contains a list of API Endpoints from the backend application to perform all system functionalities tied to the backend and FaDatabase.
  * 
  * */
-const PORT = '4444';
-const HOST = '127.0.0.1';
+const PORT = '8000';
+const HOST = '192.168.196.82';
 const PROTOCOL = 'http';
-const LINK =  `${PROTOCOL}://${HOST || 'localhost'}:${PORT}/api/v1/fdj/`;
+const LINK =  `${PROTOCOL}://${HOST || 'localhost'}:${PORT}/api/v1/cs/`;
 
 let APIS = {
     userApis: {
@@ -59,7 +59,8 @@ let APIS = {
     files: {
         profile: `${LINK}profile/`,
         pictures: `${LINK}pictures/`,
-    }
+    },
+    checkout: `${LINK}create-checkout-session`,
 }
 
 const Endpoints = { APIS, HOST, PORT, LINK, PROTOCOL }

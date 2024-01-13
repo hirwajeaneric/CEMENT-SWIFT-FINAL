@@ -11,11 +11,11 @@ const jobSchema = new mongoose.Schema({
       required: true,
       default: 10,  
     },
-    jobLocation: {
+    deliveryLocation: {
         type: String, 
         required: [true, "Drop Location  is required"],
     },
-    jobGoogleMapLocation: {
+    deliveryGoogleMapLocation: {
         type: String, 
         required: false
     },

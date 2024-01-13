@@ -40,7 +40,7 @@ export default function SignUpForm(props) {
     };
     
     return (
-        <BookFormContainer onSubmit={handleSubmit(onSubmit)}>
+        <BookFormContainer style={{ flexDirection: 'column', alignItems: 'center' }} onSubmit={handleSubmit(onSubmit)}>
             <div className="form-input-container">
                 <input 
                     type="text" 
@@ -52,26 +52,6 @@ export default function SignUpForm(props) {
                 {errors.fullName?.type === "required" && (
                     <p role="alert">Your name is required</p>
                 )}
-            </div>
-            <div className="form-input-container">
-                <select 
-                    {...register("userType", { required: true })}
-                    aria-invalid={errors.userType ? "true" : "false"}
-                >
-                    <option value="">Choose role</option>
-                    <option value="Company">Company</option>
-                    <option value="Personal">Personal</option>
-                </select>
-                {errors.requestingUserType?.type === "required" && (
-                    <p role="alert">User type is required</p>
-                )}
-            </div>
-            <div className="form-input-container">
-                <input 
-                    type="text" 
-                    placeholder="Requesting Company" 
-                    {...register("requestingCompany", {})}   
-                />
             </div>
             <div className="form-input-container">
                 <input 

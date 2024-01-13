@@ -9,12 +9,10 @@ const UserAccountHome = () => {
         <title>User account</title>
         <meta name="description" content={`User account`} />
       </Helmet>
-      <FullPageContainer>
-        <PageSizedContainer>
+              
           <h1>My Profile</h1>
-          
-        </PageSizedContainer>
-      </FullPageContainer>
+
+      
     </PageContainer>
   )
 }
