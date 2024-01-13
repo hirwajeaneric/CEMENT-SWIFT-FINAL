@@ -130,7 +130,7 @@ function App() {
             <Route path='products/' element={<ListOfProducts />} />
             <Route path='new-product/' element={<AddDj />} />
             <Route path='settings' element={<UserAccountSettings />} />
-            <Route path='bookings/:id' element={<BookingDetails />} />
+            <Route path='order/:id' element={<BookingDetails />} />
             <Route path='product/:id' element={<DjDetails />} />
             <Route path='my-booking/:id' element={<BookingDetails />} />
             <Route path='report-preview' element={<ReportPreview />} />

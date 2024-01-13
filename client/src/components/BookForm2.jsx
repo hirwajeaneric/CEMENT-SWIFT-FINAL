@@ -22,6 +22,8 @@ export default function BookForm2() {
     const [formInput, setFormInput] = useState({
         amount: 0,
         price: 0,
+        deliveryLocation:'',
+        deliveryGoogleMapLocation: ''
     });
 
     useEffect(() => {
@@ -75,8 +77,14 @@ export default function BookForm2() {
     return (
         <BookFormContainer2 onSubmit={handleSubmit(onSubmit)}>
             <div className='top-inputs'>
-                <input type="text" required name="jobLocation" value={formInput.jobLocation} placeholder="Drop location" onChange={handleFormInput} />
-                <input type="text" required name="jobGoogleMapLocation" value={formInput.jobGoogleMapLocation} placeholder="Google maps location" onChange={handleFormInput} />
+                <div className="form-input-container2">
+                    <label htmlFor='deliveryLocation'>Delivery location*</label>
+                    <input type="text" required name="deliveryLocation" value={formInput.deliveryLocation} placeholder="Delivery location" onChange={handleFormInput} />
+                </div>
+                <div className="form-input-container2">
+                    <label htmlFor='deliveryGoogleMapLocation'>Google Maps location</label>
+                    <input type="text" id='deliveryGoogleMapLocation' name="deliveryGoogleMapLocation" value={formInput.deliveryGoogleMapLocation} placeholder="Delivery google maps location" onChange={handleFormInput} />
+                </div>
             </div>
             <div className='formContainer'>
                 <div className='left' style={{ width: '75%', display: 'flex', alignItems:"flex-start", justifyContent:"space-between", gap: '40px' }}>
@@ -97,6 +105,7 @@ export default function BookForm2() {
                                 style={{ width: '100px' }}
                                 type="number" 
                                 name='amount' 
+                                min={0}
                                 placeholder="Amount" 
                                 required
                                 value={formInput.amount}
@@ -109,7 +118,7 @@ export default function BookForm2() {
                         <p style={{ color: 'black', fontSize: '100%' }}>{formInput.price}</p>
                     </div>
                 </div>
-                <div className='right' style={{ width: '23%', padding: '10px', border: '1px solid gray', borderRadius: '10px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+                <div className='right' style={{ width: '23%', padding: '10px', border: '1px solid #b3cccc', borderRadius: '10px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
                     <b>Summary</b>
                     <div style={{ marginBottom: '10px', width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                         <p style={{ color: 'black', width: '50%' }}>Delivery Charge: </p>

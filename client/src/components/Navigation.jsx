@@ -91,10 +91,10 @@ export default function Navigation() {
           {(localStorage.getItem('userTkn') && user.userType === 'Admin' ) && <NavLink to={'/dash/'}>Dashboard</NavLink>}
           {localStorage.getItem('userTkn') && 
             <div>
-              <UserIconAndName aria-controls={openMenu ? 'basic-menu' : undefined} aria-haspopup="true" aria-expanded={openMenu ? 'true' : undefined} onClick={handleClick}>
+              <UserIconAndName aria-controls={openMenu ? 'basic-menu' : undefined} aria-haspopup="true" aria-expanded={openMenu ? 'true' : undefined} onClick={() => navigate('/dash/settings')}>
                 <div className="icon" style={{ background: user.profilePicture !== undefined ? "url('"+Endpoints.APIS.files.profile+user.profilePicture+"')" : "url('/user-icon.png')", backgroundSize: "cover", backgroundOrigin: "initial" }}></div>
               </UserIconAndName>
-              <Menu id="basic-menu" anchorEl={anchorEl} open={openMenu} onClose={handleCloseMenu} MenuListProps={{ 'aria-labelledby': 'basic-button' }}>
+              {/* <Menu id="basic-menu" anchorEl={anchorEl} open={openMenu} onClose={handleCloseMenu} MenuListProps={{ 'aria-labelledby': 'basic-button' }}>
                 <MenuItem>
                   <div className="icon" style={{ background: "url('/public/pexels-francesco-paggiaro-2111015.jpg')", backgroundSize: "cover",backgroundOrigin: "initial" }}></div>
                   <p>
@@ -106,7 +106,7 @@ export default function Navigation() {
                 {user.userType === 'Manager' && <MenuItem onClick={() => {navigate('/dash/'); handleCloseMenu(); }}>Dashboard</MenuItem>}
                 <MenuItem onClick={() => {navigate('/dash/settings'); handleCloseMenu();}}>Profile</MenuItem>
                 <MenuItem onClick={() => {handleCloseMenu(); logout();}}>Logout</MenuItem>
-              </Menu>
+              </Menu> */}
             </div>
           }
         </DesktopNavigation>

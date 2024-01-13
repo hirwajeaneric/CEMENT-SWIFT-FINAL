@@ -10,6 +10,8 @@ export const FullPageContainer = styled.div`
     align-items: center;
     margin: 0 auto;
     position: relative;
+    background-color: white;
+    color: black;
 `;
 
 export const BodySections = styled.div`
@@ -1516,6 +1518,7 @@ export const BookFormContainer2 = styled.form`
         justify-content: flex-start;
         gap: 20px;
         width: 100%;    
+        margin-bottom: 20px;
     }
     
     .formContainer {
